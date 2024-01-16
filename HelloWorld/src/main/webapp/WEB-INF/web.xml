@@ -9,4 +9,24 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>Index</display-name>
+    <servlet-name>Index</servlet-name>
+    <servlet-class>hiepvd.Index</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Index</servlet-name>
+    <url-pattern>/Index</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Index1</display-name>
+    <servlet-name>Index1</servlet-name>
+    <servlet-class>hiepvd.Index</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Index1</servlet-name>
+    <url-pattern>/Index1</url-pattern>
+  </servlet-mapping>
 </web-app>
