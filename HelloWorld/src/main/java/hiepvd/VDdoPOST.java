@@ -30,16 +30,30 @@ public class VDdoPOST extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		PrintWriter traVe = response.getWriter();
 		traVe.append("Bạn vừa gửi Yêu cầu dạng GET, đây là đáp ứng của tôi");
-		String noiDungHTML =" <from method = POST action=\" /HelloWorld/VDdoPOST\"
-				+ "				<label > Họ:<label>"
+		String noiDungHTML =" <form method = POST action=\" /HelloWorld/VDdoPOST\">"
+				+ "				<label >Họ:<label>"
+				+ "				<input type=\"text\" name=\"fname\" ><br>\r\n"
+				+ "				<label >Tên:</label>"
+				+ "				<input type=\"text\" name=\"lname\"><br>"
+				+ "				<input type=\"submit\" value=\"Gửi đi\">"
+				+ "	</form>";
+		traVe.append(noiDungHTML);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		response.setContentType("text/html");
+		response.setCharacterEncoding("utf-8");
+		String value1 = request.getParameter("fname");
+		String value2 = request.getParameter("lname");
+		PrintWriter traVe = response.getWriter();
+		traVe.append("Bạn vừa gửi Yêu cầu dạng POST, đây là đáp ứng của tôi ");
+		traVe.append("Giá trị tham số fname =");
+		traVe.append(value1);
+		traVe.append("\nGiá trị tham số lname =");
+		traVe.append(value2);
 	}
 
 }
