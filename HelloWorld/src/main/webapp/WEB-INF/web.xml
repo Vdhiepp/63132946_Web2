@@ -29,4 +29,34 @@
     <servlet-name>Index1</servlet-name>
     <url-pattern>/Index1</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>VDdoGET</display-name>
+    <servlet-name>VDdoGET</servlet-name>
+    <servlet-class>hiepvd.VDdoGET</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>VDdoGET</servlet-name>
+    <url-pattern>/VDdoGET</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>VDdoPOST</display-name>
+    <servlet-name>VDdoPOST</servlet-name>
+    <servlet-class>hiepvd.VDdoPOST</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>VDdoPOST</servlet-name>
+    <url-pattern>/VDdoPOST</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>VDdoPOST1</display-name>
+    <servlet-name>VDdoPOST1</servlet-name>
+    <servlet-class>hiepvd.VDdoPOST</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>VDdoPOST1</servlet-name>
+    <url-pattern>/VDdoPOST1</url-pattern>
+  </servlet-mapping>
 </web-app>
