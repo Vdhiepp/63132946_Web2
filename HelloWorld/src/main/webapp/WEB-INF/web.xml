@@ -59,4 +59,14 @@
     <servlet-name>VDdoPOST1</servlet-name>
     <url-pattern>/VDdoPOST1</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AboutMe</display-name>
+    <servlet-name>AboutMe</servlet-name>
+    <servlet-class>hiepvd.AboutMe</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AboutMe</servlet-name>
+    <url-pattern>/AboutMe</url-pattern>
+  </servlet-mapping>
 </web-app>
