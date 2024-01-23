@@ -1,0 +1,24 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login JSP</title>
+</head>
+<body>
+<%
+	//Lấy dữ liệu gửi từ nguòi dùng
+	String tenDN= request.getParameter("uname");
+	String mk= request.getParameter("upass");
+	//Xử lý
+	if(tenDN.equals("ABC") && mk.equals("MNK"))
+		response.sendRedirect("UserProfile.html");
+	else if(tenDN.equals("bootstrap") && mk.equals("123"))
+		response.sendRedirect("index.html");
+	else
+		response.sendRedirect("Login.html");
+%>
+	
+</body>
+</html>
