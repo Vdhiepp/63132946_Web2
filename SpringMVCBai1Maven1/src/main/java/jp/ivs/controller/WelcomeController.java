@@ -5,10 +5,16 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class WelcomController {
+public class WelcomeController {
 	@RequestMapping("/welcome")
 	public String welcome(ModelMap model) {
 		model.addAttribute("msg", "Helo maven");
 		return "viewWelcome";
 	}
+	
+	@RequestMapping("say-hello")
+	public String sayHello() {
+		return "hello";
+	}
+	
 }
