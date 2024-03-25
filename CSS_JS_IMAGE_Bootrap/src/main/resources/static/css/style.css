@@ -1,0 +1,76 @@
+/* Thay đổi màu nền và màu chữ cho thẻ body */
+body {
+    background-color: #f8f9fa; /* Màu xám nhạt */
+    color: #333; /* Màu chữ đậm */
+    font-family: Arial, sans-serif; /* Font chữ */
+}
+header {
+    margin-bottom: 20px;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link {
+    font-size: 18px;
+    color: #333;
+}
+.navbar-nav .nav-item .nav-link {
+    transition: border-bottom-color 0.3s ease; /* Thêm hiệu ứng mềm mại */
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    border-bottom: 2px solid #007bff; /* Gạch chân khi hover vào */
+}
+
+/* Thay đổi màu cho thẻ h1 */
+h1 {
+    text-align: center; /* Căn giữa */
+    color: #007bff; /* Màu xanh lam */
+    margin-top: 50px; /* Khoảng cách từ đỉnh trang */
+    text-transform: uppercase; /* Chuyển đổi thành chữ hoa */
+}
+
+/* Thay đổi màu cho thẻ h2 */
+h2 {
+    color: #28a745; /* Màu xanh lá cây */
+}
+
+/* Thay đổi màu chữ cho bảng */
+.table {
+    color: #495057; /* Màu chữ xám đậm */
+}
+
+/* Thay đổi màu nền cho các hàng chẵn trong bảng */
+.table-striped tbody tr:nth-of-type(even) {
+    background-color: #f2f2f2; /* Màu nền xám nhạt */
+}
+
+/* Thay đổi màu nền cho các hàng lẻ trong bảng */
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #e9ecef; /* Màu nền xám nhạt khác */
+}
+
+/* Thay đổi màu nền cho tiêu đề của bảng */
+.table thead th {
+    background-color: #343a40; /* Màu nền đen */
+    color: #fff; /* Màu chữ trắng */
+}
+
+/* Thay đổi màu nền cho ô tiêu đề của bảng */
+.table th,
+.table td {
+    border-color: #dee2e6; /* Màu viền xám nhạt */
+}
+
+/* Thay đổi màu chữ cho ô tiêu đề của bảng */
+.table th {
+    color: #000; /* Màu chữ trắng */
+}
+
+/* Tạo hiệu ứng khi di chuột vào hàng trong bảng */
+.table-striped tbody tr:hover {
+    background-color: #d4edda; /* Màu nền xanh nhạt khi di chuột vào */
+    transition: background-color 0.3s ease; /* Tạo hiệu ứng mềm mại */
+}
