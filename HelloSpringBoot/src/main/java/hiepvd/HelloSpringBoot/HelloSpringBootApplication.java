@@ -1,13 +1,13 @@
-package org.o7planning.thymeleaf;
+package hiepvd.HelloSpringBoot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringBootThymeleafApplication {
+public class HelloSpringBootApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringBootThymeleafApplication.class, args);
+		SpringApplication.run(HelloSpringBootApplication.class, args);
 	}
 
 }
