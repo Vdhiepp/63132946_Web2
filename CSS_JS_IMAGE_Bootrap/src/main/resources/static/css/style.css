@@ -6,11 +6,16 @@ body {
 }
 header {
     margin-bottom: 20px;
+    background-color: #007bff; /* Màu nền cho header */
+    padding: 10px 0; /* Khoảng cách padding trên và dưới */
 }
-
 .navbar-brand {
     font-weight: bold;
 }
+.navbar-brand img {
+            width: 100px; /* Thiết lập chiều rộng là 50px */
+            height: auto; /* Chiều cao tự động tính theo tỷ lệ */
+        }
 
 .navbar-nav .nav-link {
     font-size: 18px;

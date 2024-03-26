@@ -9,4 +9,8 @@ public class HomeController {
 	public String Index() {
 		return "index";
 	}
+	@GetMapping("/legal")
+	public String Legal() {
+		return "Legal_QA";
+	}
 }
