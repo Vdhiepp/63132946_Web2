@@ -28,4 +28,7 @@ public class SinhVien {
 		this.hoVaTen = hoVaTen;
 		this.lopHoc = lopHoc;
 	}
+	public SinhVien() {
+		super();
+	}
 }
