@@ -62,4 +62,5 @@ public class HomeController {
 	public String TimKiem() {
 		return "TimKiem";
 	}
+	
 }

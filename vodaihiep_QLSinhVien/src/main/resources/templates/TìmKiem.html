@@ -28,7 +28,7 @@
         <a class="nav-link" href="/themMoiSV">Thêm Mới Sinh Viên</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/timkiem">Tìm Kiếm Sinh Viên</a>
+        <a class="nav-link" href="#">Tìm Kiếm Sinh Viên</a>
       </li>
     </ul>
   </div>
@@ -36,15 +36,15 @@
 
 <div align="center">
     <h1>Tìm kiếm sinh viên</h1>
-    <form action="#" th:action="@{/themMoiSV}" method="post" th:object="${svDTO}">
+    <form action="#" >
         <label>Mã số SV:</label>
-        <input type="text" th:field="*{maSoSV}" /><br/>
+        <input type="text" /><br/>
  
         <label>Họ và Tên:</label>
-        <input type="text" th:field="*{hoVaTen}" /><br/>
+        <input type="text"  /><br/>
         
         <label>Lớp học:</label>
-        <input type="text" th:field="*{lopHoc}" /><br/>
+        <input type="text"  /><br/>
          <button type="submit">Tìm kiếm</button>    
     </form>
 </div>
