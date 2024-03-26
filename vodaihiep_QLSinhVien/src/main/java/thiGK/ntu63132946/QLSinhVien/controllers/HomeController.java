@@ -20,7 +20,7 @@ import thiGK.ntu63132946.QLSinhVien.services.SinhVienService;
 
 @Controller
 public class HomeController {
-	@GetMapping("/")
+	@GetMapping("/home")
 	public String Index() {
 		return "index";
 	}
@@ -58,4 +58,8 @@ public class HomeController {
 	    return "themOK";
 	}
 	
+	@GetMapping("/timkiem")
+	public String TimKiem() {
+		return "TimKiem";
+	}
 }

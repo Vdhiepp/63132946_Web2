@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+ 	<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+  	<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+
+	<title>Tìm kiếm</title>
+	
+
+    <link th:href = "@{/bootstrap-4.3.1-dist/css/bootstrap.min.css}" rel="stylesheet">
+
+    <link th:href ="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/home">Trang Chủ</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/danhsachSV">Danh Sách Sinh Viên</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/themMoiSV">Thêm Mới Sinh Viên</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/timkiem">Tìm Kiếm Sinh Viên</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div align="center">
+    <h1>Tìm kiếm sinh viên</h1>
+    <form action="#" th:action="@{/themMoiSV}" method="post" th:object="${svDTO}">
+        <label>Mã số SV:</label>
+        <input type="text" th:field="*{maSoSV}" /><br/>
+ 
+        <label>Họ và Tên:</label>
+        <input type="text" th:field="*{hoVaTen}" /><br/>
+        
+        <label>Lớp học:</label>
+        <input type="text" th:field="*{lopHoc}" /><br/>
+         <button type="submit">Tìm kiếm</button>    
+    </form>
+</div>
+</body>
+</html>
