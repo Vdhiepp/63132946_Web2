@@ -9,4 +9,8 @@ public class HomeController {
 	public String Index() {
 		return "index";
 	}
+	@GetMapping("/them")
+	public String ThemMoi() {
+		return "themMoi";
+	}
 }
