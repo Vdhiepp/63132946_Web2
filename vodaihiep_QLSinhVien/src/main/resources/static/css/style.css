@@ -3,3 +3,68 @@
       height: 100px; /* Adjust height as needed */
       object-fit: cover;
 }
+/* Style for navbar */
+.navbar {
+  background-color: #ffffff; /* Background color: white */
+}
+
+.navbar-brand {
+  color: #000000; /* Text color: black */
+}
+
+.navbar-nav .nav-link {
+  color: #000000; /* Text color: black */
+}
+
+.navbar-nav .nav-link:hover {
+  color: #007bff; /* Text color on hover: primary color (blue) */
+}
+
+/* Style for table */
+table {
+  width: 100%; /* Table width */
+  border-collapse: collapse; /* Collapse border */
+}
+
+table th, table td {
+  padding: 8px; /* Cell padding */
+  border: 1px solid #000000; /* Border color: black */
+}
+
+table th {
+  background-color: #007bff; /* Header background color: primary color (blue) */
+  color: #ffffff; /* Header text color: white */
+  font-weight: bold; /* Bold font */
+}
+
+table tbody tr:nth-child(even) {
+  background-color: #ffffff; /* Even row background color: white */
+}
+
+table tbody tr:hover {
+  background-color: #007bff; /* Row background color on hover: primary color (blue) */
+  color: #ffffff; /* Text color on hover: white */
+}
+
+.active {
+  font-weight: bold; /* Bold font for active page number */
+  color: #007bff; /* Text color for active page number: primary color (blue) */
+}
+/* CSS for pagination */
+.pagination-links {
+  display: inline-block; /* Hiển thị các phần tử trên cùng một hàng */
+}
+
+.pagination-links a {
+  display: inline-block; /* Hiển thị các liên kết trên cùng một hàng */
+  padding: 5px 10px; /* Khoảng cách giữa các liên kết */
+  margin-right: 5px; /* Khoảng cách phía bên phải của mỗi liên kết */
+  border: 1px solid #007bff; /* Viền */
+  color: #007bff; /* Màu chữ */
+  text-decoration: none; /* Bỏ gạch chân */
+}
+
+.pagination-links a:hover {
+  background-color: #007bff; /* Màu nền khi rê chuột qua */
+  color: #ffffff; /* Màu chữ khi rê chuột qua */
+}
