@@ -1,5 +1,7 @@
 package hiepvd.QuanLyNhanVien.models;
 
+import java.sql.Date;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -7,8 +9,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-@Entity						// đánh dấu rằng đây là một entity
-@Table(name = "nhanvien")	// chỉ định tên của bảng trong cơ sở dữ liệu.
+@Entity						
+@Table(name = "nhanvien")	
 public class NhanVien {
     @Id						
     @GeneratedValue(strategy = GenerationType.IDENTITY)  
@@ -21,23 +23,33 @@ public class NhanVien {
     @Column(name = "tenNV")  
     private String tenNV;	
 
-    @Column(name = "email")
-    private String email;
+    @Column(name = "gioiTinh")  
+    private String gioiTinh;	
     
-    @Column(name = "sdt")	
-    private int sdt;
+    @Column(name = "chucVu")  
+    private String chucVu;	
     
-    @Column(name = "diaChi")
-    private String diaChi;
+    @Column(name = "cccd")	
+    private int cccd;
+    
+    @Column(name = "ngaySinh")	
+    private Date ngaySinh;
+    
+    @Column(name = "maPhong")	
+    private int maPhong;
+    
+    @Column(name = "maLuong")	
+    private int maLuong;
     
     public NhanVien() {}
 
-    public NhanVien(String hoNV, String tenNV, String email, int sdt, String diaChi) {
+    public NhanVien(String hoNV, String tenNV, String gioiTinh, String chucVu, int cccd, Date ngaySinh) {
         this.hoNV = hoNV;
         this.tenNV = tenNV;
-        this.email = email;
-        this.sdt = sdt;
-        this.diaChi = diaChi;
+        this.gioiTinh = gioiTinh;
+        this.chucVu = chucVu;
+        this.cccd = cccd;
+        this.ngaySinh = ngaySinh;
     }
 
 	public int getMaNV() {
@@ -64,28 +76,52 @@ public class NhanVien {
 		this.tenNV = tenNV;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getGioiTinh() {
+		return gioiTinh;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setGioiTinh(String gioiTinh) {
+		this.gioiTinh = gioiTinh;
 	}
 
-	public int getSdt() {
-		return sdt;
+	public String getChucVu() {
+		return chucVu;
 	}
 
-	public void setSdt(int sdt) {
-		this.sdt = sdt;
+	public void setChucVu(String chucVu) {
+		this.chucVu = chucVu;
 	}
 
-	public String getDiaChi() {
-		return diaChi;
+	public int getCccd() {
+		return cccd;
 	}
 
-	public void setDiaChi(String diaChi) {
-		this.diaChi = diaChi;
+	public void setCccd(int cccd) {
+		this.cccd = cccd;
+	}
+
+	public Date getNgaySinh() {
+		return ngaySinh;
+	}
+
+	public void setNgaySinh(Date ngaySinh) {
+		this.ngaySinh = ngaySinh;
+	}
+
+	public int getMaPhong() {
+		return maPhong;
+	}
+
+	public void setMaPhong(int maPhong) {
+		this.maPhong = maPhong;
+	}
+
+	public int getMaLuong() {
+		return maLuong;
+	}
+
+	public void setMaLuong(int maLuong) {
+		this.maLuong = maLuong;
 	}
 
 	// toString method (optional)
@@ -95,9 +131,12 @@ public class NhanVien {
 						"maNV=" + maNV + 
 						", hoNV= '" + hoNV + '\'' +
 						", tenNV= '" + tenNV + '\'' +
-						", email= '" + email + '\'' +
-						", sdt= '" + sdt + '\'' +
-						", diaChi= '" + diaChi + '\'' +
+						", gioiTinh= '" + gioiTinh + '\'' +
+						", chucVu= '" + chucVu + '\'' +
+						", cccd= '" + cccd + '\'' +
+						", ngaySinh= '" + ngaySinh + '\'' +
+						", phongBan= '" + maPhong + '\'' +
+						", tienLuong= '" + maLuong + '\'' +
 						'}';
 	}
 	
