@@ -19,7 +19,6 @@ public class PhongBanServiceImpl implements PhongBanService{
 		return phongBanRepository.findAll();
 	}
 
-	@Override
 	public PhongBan findPhongBanByID(String MaPhong) {
 		Optional<PhongBan> opt =phongBanRepository.findById(MaPhong);
 		if (opt.isPresent()) 
@@ -36,5 +35,11 @@ public class PhongBanServiceImpl implements PhongBanService{
 	@Override
 	public void deletePhongBan(String MaPhong) {
 		phongBanRepository.deleteById(MaPhong);
+	}
+
+	@Override
+	public PhongBan findCustomerByID(String MaPhong) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
