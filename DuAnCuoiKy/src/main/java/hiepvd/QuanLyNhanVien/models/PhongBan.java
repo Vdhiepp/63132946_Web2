@@ -2,8 +2,6 @@ package hiepvd.QuanLyNhanVien.models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -11,59 +9,57 @@ import jakarta.persistence.Table;
 @Table(name = "phongban")
 public class PhongBan {
 	@Id						
-    @GeneratedValue(strategy = GenerationType.IDENTITY)  
-    @Column(name = "MaPhong")	
-    private String MaPhong;
+    @Column(name = "ma_phong")	
+    private String maphong;
 	
-	@Column(name = "TenPhong")  
-    private String TenPhong;	
+	@Column(name = "ten_phong")  
+    private String tenphong;	
 	
-	@Column(name = "TenTruongPhong")  
-    private String TenTruongPhong;	 
+	@Column(name = "ten_truong_phong")  
+    private String tentruongphong;	 
 	
-	@Column(name = "DienThoaiPhong")	
-    private int DienThoaiPhong;
+	@Column(name = "sdt_phong")	
+    private int sdtphong;
 	
 	public PhongBan() {}
 	
 	public PhongBan(String MaPhong, String TenPhong, String TenTruongPhong, int DienThoaiPhong) {
-        this.MaPhong = MaPhong;
-        this.TenPhong = TenPhong;
-        this.TenTruongPhong = TenTruongPhong;
-        this.DienThoaiPhong = DienThoaiPhong;
+        this.maphong = MaPhong;
+        this.tenphong = TenPhong;
+        this.tentruongphong = TenTruongPhong;
+        this.sdtphong = DienThoaiPhong;
     }
 
-	public String getMaPhong() {
-		return MaPhong;
+	public String getMaphong() {
+		return maphong;
 	}
 
-	public void setMaPhong(String maPhong) {
-		MaPhong = maPhong;
+	public void setMaphong(String maphong) {
+		this.maphong = maphong;
 	}
 
-	public String getTenPhong() {
-		return TenPhong;
+	public String getTenphong() {
+		return tenphong;
 	}
 
-	public void setTenPhong(String tenPhong) {
-		TenPhong = tenPhong;
+	public void setTenphong(String tenphong) {
+		this.tenphong = tenphong;
 	}
 
-	public String getTenTruongPhong() {
-		return TenTruongPhong;
+	public String getTentruongphong() {
+		return tentruongphong;
 	}
 
-	public void setTenTruongPhong(String tenTruongPhong) {
-		TenTruongPhong = tenTruongPhong;
+	public void setTentruongphong(String tentruongphong) {
+		this.tentruongphong = tentruongphong;
 	}
 
-	public int getDienThoaiPhong() {
-		return DienThoaiPhong;
+	public int getSdtphong() {
+		return sdtphong;
 	}
 
-	public void setDienThoaiPhong(int dienThoaiPhong) {
-		DienThoaiPhong = dienThoaiPhong;
+	public void setSdtphong(int sdtphong) {
+		this.sdtphong = sdtphong;
 	}
-	
 	
 }

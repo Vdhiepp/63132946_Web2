@@ -13,131 +13,41 @@ import jakarta.persistence.Table;
 @Table(name = "nhanvien")	
 public class NhanVien {
     @Id						
-    @GeneratedValue(strategy = GenerationType.IDENTITY)  
-    @Column(name = "maNV")	
-    private int maNV;
+    @Column(name = "ma_nv")	
+    private String maNV;
     
-    @Column(name = "hoNV")  
+    @Column(name = "ho_nv")  
     private String hoNV;	 
 
-    @Column(name = "tenNV")  
+    @Column(name = "ten_nv")  
     private String tenNV;	
 
-    @Column(name = "gioiTinh")  
+    @Column(name = "gioi_tinh")  
     private String gioiTinh;	
     
-    @Column(name = "chucVu")  
+    @Column(name = "ngay_sinh")  
+    private Date ngaySinh;	
+    
+    @Column(name = "dia_chi")  
+    private String diaChi;	
+    
+    @Column(name = "chuc_vu")  
     private String chucVu;	
     
-    @Column(name = "cccd")	
-    private int cccd;
+    @Column(name = "tinh_do")  
+    private String trinhDo;	
     
-    @Column(name = "ngaySinh")	
-    private Date ngaySinh;
+    @Column(name = "luong_co_so")  
+    private Float luongCoSo;	
     
     @Column(name = "maPhong")	
-    private int maPhong;
+    private String maPhong;
     
-    @Column(name = "maLuong")	
-    private int maLuong;
+    @Column(name = "tien_luong")	
+    private Float luong;
     
     public NhanVien() {}
 
-    public NhanVien(String hoNV, String tenNV, String gioiTinh, String chucVu, int cccd, Date ngaySinh) {
-        this.hoNV = hoNV;
-        this.tenNV = tenNV;
-        this.gioiTinh = gioiTinh;
-        this.chucVu = chucVu;
-        this.cccd = cccd;
-        this.ngaySinh = ngaySinh;
-    }
+    
 
-	public int getMaNV() {
-		return maNV;
-	}
-
-	public void setMaNV(int maNV) {
-		this.maNV = maNV;
-	}
-
-	public String getHoNV() {
-		return hoNV;
-	}
-
-	public void setHoNV(String hoNV) {
-		this.hoNV = hoNV;
-	}
-
-	public String getTenNV() {
-		return tenNV;
-	}
-
-	public void setTenNV(String tenNV) {
-		this.tenNV = tenNV;
-	}
-
-	public String getGioiTinh() {
-		return gioiTinh;
-	}
-
-	public void setGioiTinh(String gioiTinh) {
-		this.gioiTinh = gioiTinh;
-	}
-
-	public String getChucVu() {
-		return chucVu;
-	}
-
-	public void setChucVu(String chucVu) {
-		this.chucVu = chucVu;
-	}
-
-	public int getCccd() {
-		return cccd;
-	}
-
-	public void setCccd(int cccd) {
-		this.cccd = cccd;
-	}
-
-	public Date getNgaySinh() {
-		return ngaySinh;
-	}
-
-	public void setNgaySinh(Date ngaySinh) {
-		this.ngaySinh = ngaySinh;
-	}
-
-	public int getMaPhong() {
-		return maPhong;
-	}
-
-	public void setMaPhong(int maPhong) {
-		this.maPhong = maPhong;
-	}
-
-	public int getMaLuong() {
-		return maLuong;
-	}
-
-	public void setMaLuong(int maLuong) {
-		this.maLuong = maLuong;
-	}
-
-	// toString method (optional)
-	@Override
-	public String toString() {
-		return "NhanVien{" + 
-						"maNV=" + maNV + 
-						", hoNV= '" + hoNV + '\'' +
-						", tenNV= '" + tenNV + '\'' +
-						", gioiTinh= '" + gioiTinh + '\'' +
-						", chucVu= '" + chucVu + '\'' +
-						", cccd= '" + cccd + '\'' +
-						", ngaySinh= '" + ngaySinh + '\'' +
-						", phongBan= '" + maPhong + '\'' +
-						", tienLuong= '" + maLuong + '\'' +
-						'}';
-	}
-	
 }

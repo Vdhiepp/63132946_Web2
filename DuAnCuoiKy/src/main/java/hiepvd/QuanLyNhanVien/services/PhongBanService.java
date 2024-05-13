@@ -9,7 +9,7 @@ import hiepvd.QuanLyNhanVien.models.PhongBan;
 @Service
 public interface PhongBanService {
 		List<PhongBan> findAllPhongBan();
-		PhongBan findCustomerByID(String MaPhong);
+		PhongBan findCustomerByID(String maphong);
 	void addPhongBan(PhongBan phongBan);
-	void deletePhongBan(String MaPhong);
+	void deletePhongBan(String maphong);
 }

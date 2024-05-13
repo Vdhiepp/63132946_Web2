@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Danh sách Phòng ban</title>
+</head>
+<body>
+	<h1>Danh sách phòng ban</h1>
+	<table border="1">
+		<thead>
+			<tr>
+				<th>Mã Phòng Ban</th>
+				<th>Tên Phòng Ban </th>
+				<th>Tên Trưởng Phòng </th>
+				<th>Số Điện Thoại </th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="pb : ${dsPhongBan}">
+				<td th:text="${pb.maphong}" />
+				<td th:text="${pb.tenphong}" />
+				<td th:text="${pb.tentruongphong}" />
+				<td th:text="${pb.sdtphong}" />
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
