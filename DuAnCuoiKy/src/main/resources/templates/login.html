@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+<link rel="shortcut icon" type="images/png" href="images/logo.png">
+
+<title>Login</title>
+
+<!-- CSS Bootstrap lõi -->
+<link th:href="@{/bootstrap-4.3.1-dist/css/bootstrap.min.css}"
+	rel="stylesheet">
+<!-- CSS tự tạo của mình-->
+<link th:href="@{/css/style_login.css}" rel="stylesheet" />
+</head>
+<body>
+	<div class="hero_area">
+		<div class="hero_bg_box">
+			<div class="bg_img_box">
+				<img src="images/hero-bg.png" alt="">
+			</div>
+		</div>
+		<form class="form">
+			<p class="form-title">Login to your account</p>
+			<div class="input-container">
+				<input type="text" placeholder="Enter username"> <span>
+				</span>
+			</div>
+			<div class="input-container">
+				<input type="password" placeholder="Enter password">
+			</div>
+			<a th:href="@{/nhanVien/all}" class="btn1">
+                        Login
+                      </a>
+			<button type="submit" class="submit">Login</button>
+		</form>
+	</div>
+</body>
+</html>

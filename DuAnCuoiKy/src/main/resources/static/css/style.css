@@ -7,16 +7,17 @@
     top: 0px;
     left: 0;
     height: 100%;
-    width: 250px; /* Điều chỉnh chiều rộng của aside theo ý muốn */
-    background-color: #000000; /* Màu nền của aside */
+    width: 200px; /* Điều chỉnh chiều rộng của aside theo ý muốn */
+    background-color: #1C1363; /* Màu nền của aside */
     overflow-y: auto; /* Cho phép cuộn nếu nội dung quá dài */
+    padding-top: 37px;
 }
 #menu a {
     padding: 10px;
     display: block;
     color: #fff;
     text-decoration: none;
-    background-color: #000000;
+    background-color: #1C1363;
 }
 
 #menu a:hover {
@@ -29,12 +30,122 @@
 
 /* CSS cho phần còn lại của trang */
 #content {
-    margin-left: 248px; /* Khoảng cách giữa menu và nội dung phía bên phải */
-    width: calc(100% - 248px); /* Chiều rộng của phần còn lại tính từ vị trí của menu */
+    margin-left: 198px; /* Khoảng cách giữa menu và nội dung phía bên phải */
+    width: calc(100% - 198px); /* Chiều rộng của phần còn lại tính từ vị trí của menu */
     height: 100%; /* Chiều cao giống với chiều cao của menu */
     overflow-y: auto; /* Cho phép cuộn nếu nội dung phần còn lại quá dài */
     margin-top: 0px;
 }
 header{
-	background-color: #000000;
+	background-color: #1C1363;
+}
+.header_section {
+  padding: 15px 0;
+}
+
+.header_section .container-fluid {
+  padding-right: 25px;
+  padding-left: 25px;
+}
+
+.navbar-brand span {
+  font-weight: bold;
+  font-size: 24px;
+  color: #ffffff;
+}
+
+.custom_nav-container {
+  padding: 0;
+}
+
+.custom_nav-container .navbar-nav {
+  margin-left: auto;
+}
+
+.custom_nav-container .navbar-nav .nav-item .nav-link {
+  padding: 5px 20px;
+  color: #ffffff;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 5px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.custom_nav-container .navbar-nav .nav-item:hover .nav-link, .custom_nav-container .navbar-nav .nav-item.active .nav-link {
+  color: #00bbf0;
+}
+
+.custom_nav-container .navbar-nav .nav-item.active .nav-link {
+  font-weight: 600;
+}
+
+.custom_nav-container .nav_search-btn {
+  width: 35px;
+  height: 35px;
+  padding: 0;
+  border: none;
+  color: #ffffff;
+}
+
+.custom_nav-container .nav_search-btn:hover {
+  color: #00bbf0;
+}
+
+.custom_nav-container .navbar-toggler {
+  outline: none;
+}
+
+.custom_nav-container .navbar-toggler {
+  padding: 0;
+  width: 37px;
+  height: 42px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.custom_nav-container .navbar-toggler span {
+  display: block;
+  width: 35px;
+  height: 4px;
+  background-color: #ffffff;
+  margin: 7px 0;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  position: relative;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+
+.custom_nav-container .navbar-toggler span::before, .custom_nav-container .navbar-toggler span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #ffffff;
+  top: -10px;
+  border-radius: 5px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.custom_nav-container .navbar-toggler span::after {
+  top: 10px;
+}
+
+.custom_nav-container .navbar-toggler[aria-expanded="true"] {
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+}
+
+.custom_nav-container .navbar-toggler[aria-expanded="true"] span {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.custom_nav-container .navbar-toggler[aria-expanded="true"] span::before, .custom_nav-container .navbar-toggler[aria-expanded="true"] span::after {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  top: 0;
 }

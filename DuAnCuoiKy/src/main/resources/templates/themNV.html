@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+<link rel="shortcut icon" type="images/png" href="images/logo.png">
+
+<title>Thêm Nhân Viên</title>
+
+<!-- CSS Bootstrap lõi -->
+<link th:href="@{/bootstrap-4.3.1-dist/css/bootstrap.min.css}"
+	rel="stylesheet">
+<!-- CSS tự tạo của mình-->
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+
+</head>
+<body>
+	<div id="menu">
+		<div th:replace="~{fragments/sidebar :: aside}">Siderbar ở đây</div>
+	</div>
+	<div id="content">
+		<table width=100% height=100%>
+			<tr>
+				<td colspan=2>
+					<div th:replace="~{fragments/headerfile :: header}">Header ở
+						đây</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<main>
+						<h1>Nhập Thông Tin Nhân Viên</h1>
+						<form th:action="@{/themNV}" method="post">
+							<label for="maNV">Mã Nhân Viên:</label> 
+							<input type="text" id="maNV" name="maNV" required><br><br> 
+							
+							<label for="hoNV">Họ Nhân Viên:</label> 
+							<input type="text" id="hoNV" name="hoNV" required><br><br> 
+							
+							<label for="tenNV">Tên Nhân Viên:</label> 
+							<input type="text" id="tenNV" name="tenNV" required><br><br> 
+							
+							<label>Giới Tính:</label> 
+							<input type="radio" id="nam" name="gioiTinh" value="Nam" required> 
+							<label for="nam">Nam</label>
+							<input type="radio" id="nu" name="gioiTinh" value="Nu"> 
+							<label for="nu">Nữ</label><br><br> 
+							
+							<label for="ngaySinh">Ngày sinh:</label> 
+							<input type="date" id="ngaySinh" name="ngaySinh" required><br><br>
+							
+							<label for="diaChi">Địa Chỉ:</label> 
+							<input type="text" id="diaChi" name="diaChi" required><br><br>
+							
+							<label for="chucVu">Chức vụ:</label> 
+							<input type="text" id="chucVu" name="chucVu" required><br><br>
+							
+							<label for="trinhDo">Trình độ:</label> 
+							<input type="text" id="trinhDo" name="trinhDo" required><br><br>
+							
+							<label for="luongCoSo">Lương cơ sở:</label> 
+							<input type="number" id="luongCoSo" name="luongCoSo" required><br><br>
+							
+							<label for="maPhong">Mã phòng:</label>
+        					<input type="text" id="maPhong" name="maPhong" required><br><br>
+        					
+        					<label for="maBac">Mã hệ số lương:</label>
+        					<input type="text" id="maBac" name="maBac" required><br><br>
+        					
+        					<label for="maPhuCap">Mã phụ cấp:</label>
+        					<input type="text" id="maPhuCap" name="maPhuCap" required><br><br>
+        					
+        					<label for="maThuong">Mã thưởng:</label>
+        					<input type="text" id="maThuong" name="maThuong" required><br><br>
+        					
+        					<label for="luong">Lương:</label> 
+							<input type="number" id="luong" name="luong" required><br><br>
+
+							<button type="submit">Thêm</button>
+						</form>
+					</main>
+				</td>
+			</tr>
+			<tr>
+				<td colspan=2>
+					<div th:replace="~{fragments/footerfile :: footer}">Footer ở
+						đây</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+</body>
+</html>

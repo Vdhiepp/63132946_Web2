@@ -11,7 +11,6 @@ import hiepvd.QuanLyNhanVien.repositories.PhongBanRepository;
 
 @Service
 public class PhongBanServiceImpl implements PhongBanService{
-	
 	@Autowired PhongBanRepository phongBanRepository;
 	
 	@Override

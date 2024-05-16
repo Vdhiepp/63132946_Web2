@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
 <link rel="shortcut icon" type="images/png" href="images/logo.png">
 
-<title>Phòng Ban</title>
+<title>Nhân viên</title>
 
 <!-- CSS Bootstrap lõi -->
 <link th:href="@{/bootstrap-4.3.1-dist/css/bootstrap.min.css}"
@@ -37,18 +37,32 @@
 									<table border="1">
 										<thead>
 											<tr>
-												<th>Mã Phòng Ban</th>
-												<th>Tên Phòng Ban</th>
-												<th>Tên Trưởng Phòng</th>
-												<th>Số Điện Thoại</th>
+												<th>Mã nhân viên</th>
+												<th>Họ nhân viên</th>
+												<th>Tên nhân viên</th>
+												<th>Giới tính</th>
+												<th>Ngày sinh</th>
+												<th>Địa chỉ</th>
+												<th>Chức vụ</th>
+												<th>Phòng ban</th>
+												<th>Trình độ</th>
+												<th>Lương cơ sở</th>
+												<th>Tiền lương</th>
 											</tr>
 										</thead>
 										<tbody>
-											<tr th:each="pb : ${dsPhongBan}">
-												<td th:text="${pb.maphong}" />
-												<td th:text="${pb.tenphong}" />
-												<td th:text="${pb.tentruongphong}" />
-												<td th:text="${pb.sdtphong}" />
+											<tr th:each="nv : ${dsNhanVien}">
+												<td th:text="${nv.maNV}" />
+												<td th:text="${nv.hoNV}" />
+												<td th:text="${nv.tenNV}" />
+												<td th:text="${nv.gioiTinh}" />
+												<td th:text="${nv.ngaySinh}" />
+												<td th:text="${nv.diaChi}" />
+												<td th:text="${nv.chucVu}" />
+												<td th:text="${nv.tenPhong}" />
+												<td th:text="${nv.trinhDo}" />
+												<td th:text="${nv.luongCoSo}" />
+												<td th:text="${nv.luong}" />
 											</tr>
 										</tbody>
 									</table>
