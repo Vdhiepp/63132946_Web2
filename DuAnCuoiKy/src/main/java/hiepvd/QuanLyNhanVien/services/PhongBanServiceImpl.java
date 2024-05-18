@@ -14,28 +14,23 @@ public class PhongBanServiceImpl implements PhongBanService{
 	@Autowired PhongBanRepository phongBanRepository;
 	
 	@Override
-	public List<PhongBan> findAllPhongBan() {
+	public List<PhongBan> getAllPhongBan() {
 		return phongBanRepository.findAll();
-	}
-	
-	@Override
-	public PhongBan findCustomerByID(String maphong) {
-		Optional<PhongBan> opt =phongBanRepository.findById(maphong);
-		if (opt.isPresent()) 
-			return opt.get(); 
-		else 
-			return null;
 	}
 
 	@Override
-	public void addPhongBan(PhongBan phongBan) {
-		phongBanRepository.save(phongBan);
+	public Optional<PhongBan> getPhongBanById(String mapb) {
+		return phongBanRepository.findById(mapb);
+	}
+
+	@Override
+	public PhongBan savePhongBan(PhongBan phongBan) {
+		return phongBanRepository.save(phongBan);
 	}
 	
 	@Override
 	public void deletePhongBan(String maphong) {
 		phongBanRepository.deleteById(maphong);
 	}
-
 	
 }

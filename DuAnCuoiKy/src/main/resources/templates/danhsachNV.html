@@ -23,7 +23,8 @@
 		<table width=100% height=100%>
 			<tr>
 				<td colspan=2>
-					<div th:replace="~{fragments/headerfile :: header}">Header ở đây</div>
+					<div th:replace="~{fragments/headerfile :: header}">Header ở
+						đây</div>
 				</td>
 			</tr>
 			<tr>
@@ -38,35 +39,37 @@
 										<thead>
 											<tr>
 												<th>Mã nhân viên</th>
-												<th>Họ nhân viên</th>
 												<th>Tên nhân viên</th>
+												<th>Chứng minh nhân dân</th>
 												<th>Giới tính</th>
 												<th>Ngày sinh</th>
-												<th>Địa chỉ</th>
 												<th>Chức vụ</th>
 												<th>Phòng ban</th>
-												<th>Trình độ</th>
-												<th>Lương cơ sở</th>
-												<th>Tiền lương</th>
+												<th>Lương</th>
+												<th>Hành động</th>
 											</tr>
 										</thead>
 										<tbody>
 											<tr th:each="nv : ${dsNhanVien}">
 												<td th:text="${nv.maNV}" />
-												<td th:text="${nv.hoNV}" />
 												<td th:text="${nv.tenNV}" />
+												<td th:text="${nv.cmnd}" />
 												<td th:text="${nv.gioiTinh}" />
 												<td th:text="${nv.ngaySinh}" />
-												<td th:text="${nv.diaChi}" />
 												<td th:text="${nv.chucVu}" />
-												<td th:text="${nv.tenPhong}" />
-												<td th:text="${nv.trinhDo}" />
-												<td th:text="${nv.luongCoSo}" />
-												<td th:text="${nv.luong}" />
+												<td th:text="${nv.maPhong}" />
+												<td th:text="${nv.maLuong}" />
+												<td />
 											</tr>
 										</tbody>
 									</table>
 								</div>
+								<div class="pagination d-flex justify-content-center mt-4">
+                                    <a th:href="@{/nhanVien(page=${dsNhanVien.number - 1})}" th:if="${dsNhanVien.hasPrevious()}" class="btn btn-primary btn-sm me-2">Trang Trước</a>
+                                    <span class="align-self-center me-2">Trang [[${dsNhanVien.number + 1}]] trên [[${dsNhanVien.totalPages}]]</span>
+                                    <a th:href="@{/nhanVien(page=${dsNhanVien.number + 1})}" th:if="${dsNhanVien.hasNext()}" class="btn btn-primary btn-sm">Trang Sau</a>
+                                </div>
+
 							</div>
 						</div>
 					</main>
@@ -74,7 +77,8 @@
 			</tr>
 			<tr>
 				<td colspan=2>
-					<div th:replace="~{fragments/footerfile :: footer}">Footer ở đây</div>
+					<div th:replace="~{fragments/footerfile :: footer}">Footer ở
+						đây</div>
 				</td>
 			</tr>
 		</table>

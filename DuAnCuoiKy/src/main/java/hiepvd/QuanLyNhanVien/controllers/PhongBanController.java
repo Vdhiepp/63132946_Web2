@@ -15,7 +15,7 @@ public class PhongBanController {
 	@Autowired PhongBanService phongBanService;
 	@GetMapping("/phongBan/all")
 	public String getAll(Model model) {
-		List<PhongBan> dsPB = phongBanService.findAllPhongBan();
+		List<PhongBan> dsPB = phongBanService.getAllPhongBan();
 		model.addAttribute("dsPhongBan", dsPB);
 		return "danhsachPB";
 	}
