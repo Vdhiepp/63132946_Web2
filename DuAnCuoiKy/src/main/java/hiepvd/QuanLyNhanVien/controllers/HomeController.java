@@ -15,15 +15,7 @@ public class HomeController {
 		return "login.html";
 	}
 
-	@GetMapping("/hienThi")
-	public String hienThi() {
-		return "themNV.html";
-	}
 	
-	@GetMapping("/themNV")
-	public String themNV() {
-		return "themNV.html";
-	}
 		
 	
 }

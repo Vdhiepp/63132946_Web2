@@ -38,6 +38,7 @@
 									<table border="1">
 										<thead>
 											<tr>
+												<th>STT</th>
 												<th>Mã nhân viên</th>
 												<th>Tên nhân viên</th>
 												<th>Chứng minh nhân dân</th>
@@ -46,11 +47,13 @@
 												<th>Chức vụ</th>
 												<th>Phòng ban</th>
 												<th>Lương</th>
-												<th>Hành động</th>
+												<th></th>
 											</tr>
 										</thead>
 										<tbody>
-											<tr th:each="nv : ${dsNhanVien}">
+											<tr th:each="nv, iterStat : ${dsNhanVien}">
+												<td
+													th:text="${iterStat.index + 1 + (dsNhanVien.number * dsNhanVien.size)}"></td>
 												<td th:text="${nv.maNV}" />
 												<td th:text="${nv.tenNV}" />
 												<td th:text="${nv.cmnd}" />
@@ -58,17 +61,31 @@
 												<td th:text="${nv.ngaySinh}" />
 												<td th:text="${nv.chucVu}" />
 												<td th:text="${nv.maPhong}" />
-												<td th:text="${nv.maLuong}" />
-												<td />
+        										<td th:text="${nv.maLuong}" />
+												<td><a
+													th:href="@{/chitietNV/{id}(id=${nv.maNV})}"
+													class="btn btn-info btn-action">Chi tiết</a> <a
+													th:href="@{/suaNV/{id}(id=${nv.maNV})}"
+													class="btn btn-success btn-action">Sửa</a> <a
+													th:href="@{/xoaNV/{id}(id=${nv.maNV})}"
+													class="btn btn-danger btn-action"
+													onclick="return confirm('Bạn có chắc muốn xóa không?')">Xóa</a>
+												</td>
+
 											</tr>
 										</tbody>
 									</table>
 								</div>
 								<div class="pagination d-flex justify-content-center mt-4">
-                                    <a th:href="@{/nhanVien(page=${dsNhanVien.number - 1})}" th:if="${dsNhanVien.hasPrevious()}" class="btn btn-primary btn-sm me-2">Trang Trước</a>
-                                    <span class="align-self-center me-2">Trang [[${dsNhanVien.number + 1}]] trên [[${dsNhanVien.totalPages}]]</span>
-                                    <a th:href="@{/nhanVien(page=${dsNhanVien.number + 1})}" th:if="${dsNhanVien.hasNext()}" class="btn btn-primary btn-sm">Trang Sau</a>
-                                </div>
+									<a th:href="@{/nhanVien(page=${dsNhanVien.number - 1})}"
+										th:if="${dsNhanVien.hasPrevious()}"
+										class="btn btn-primary btn-sm me-2">Trang Trước</a> <span
+										class="align-self-center me-2">Trang
+										[[${dsNhanVien.number + 1}]] trên [[${dsNhanVien.totalPages}]]</span>
+									<a th:href="@{/nhanVien(page=${dsNhanVien.number + 1})}"
+										th:if="${dsNhanVien.hasNext()}" class="btn btn-primary btn-sm">Trang
+										Sau</a>
+								</div>
 
 							</div>
 						</div>

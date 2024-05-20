@@ -13,7 +13,7 @@ import hiepvd.QuanLyNhanVien.services.PhongBanService;
 @Controller
 public class PhongBanController {
 	@Autowired PhongBanService phongBanService;
-	@GetMapping("/phongBan/all")
+	@GetMapping("/phongBan")
 	public String getAll(Model model) {
 		List<PhongBan> dsPB = phongBanService.getAllPhongBan();
 		model.addAttribute("dsPhongBan", dsPB);

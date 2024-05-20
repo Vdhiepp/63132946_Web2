@@ -7,12 +7,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
 <link rel="shortcut icon" type="images/png" href="images/logo.png">
 
-<title>Thêm Nhân Viên</title>
+<title>Sửa thông tin nhân viên</title>
 
 <!-- CSS Bootstrap lõi -->
 <link th:href="@{/bootstrap-4.3.1-dist/css/bootstrap.min.css}"
 	rel="stylesheet">
-<!-- CSS tự tạo của mình-->
+<!-- CSS tự tạo của mình -->
 <link th:href="@{/css/style.css}" rel="stylesheet" />
 <style>
 body {
@@ -41,12 +41,10 @@ form {
 	margin-right: 10px;
 }
 </style>
-
-
 </head>
 <body>
 	<div id="menu">
-		<div th:replace="~{fragments/sidebar :: aside}">Siderbar ở đây</div>
+		<div th:replace="~{fragments/sidebar :: aside}">Sidebar ở đây</div>
 	</div>
 	<div id="content">
 		<table width=100% height=100%>
@@ -59,60 +57,63 @@ form {
 			<tr>
 				<td>
 					<main>
-						<h2 class="text-center">Thêm Nhân Viên</h2>
-						<form action="/themNV" method="post">
-							<div class="mb-3">
-								<label for="maNV" class="form-label">Mã nhân viên:</label> <input
-									type="text" id="maNV" name="maNV" class="form-control"
-									th:value="${nhanVien.maNV}">
-							</div>
+						<h2 class="text-center mb-4">Chỉnh Sửa Thông Tin Nhân Viên</h2>
+						<form action="/suaNV" method="post">
+							<input type="hidden" id="maNV" name="maNV"
+								th:value="${nhanVien.maNV}">
+
 							<div class="mb-3">
 								<label for="tenNV" class="form-label">Tên Nhân Viên:</label> <input
 									type="text" id="tenNV" name="tenNV" class="form-control"
 									th:value="${nhanVien.tenNV}">
 							</div>
+
 							<div class="mb-3">
 								<label for="cmnd" class="form-label">CMND:</label> <input
 									type="number" id="cmnd" name="cmnd" class="form-control"
 									th:value="${nhanVien.cmnd}">
 							</div>
+
 							<div class="mb-3">
 								<label for="gioiTinh" class="form-label">Giới tính:</label> <input
 									type="text" id="gioiTinh" name="gioiTinh" class="form-control"
 									th:value="${nhanVien.gioiTinh}">
 							</div>
+
 							<div class="mb-3">
 								<label for="ngaySinh" class="form-label">Ngày sinh:</label> <input
 									type="date" id="ngaySinh" name="ngaySinh" class="form-control"
 									th:value="${nhanVien.ngaySinh}">
 							</div>
+
 							<div class="mb-3">
 								<label for="chucVu" class="form-label">Chức vụ:</label> <input
 									type="text" id="chucVu" name="chucVu" class="form-control"
 									th:value="${nhanVien.chucVu}">
 							</div>
+
 							<div class="mb-3">
-								<label for="maphong" class="form-label">Phòng ban:</label> <select
-									id="maphong" name="maPhong" class="form-select" required>
-									<option value="" disabled selected>Chọn phòng ban</option>
+								<label for="maPhong">Phòng ban:</label> <select id="maPhong"
+									name="maPhong" class="form-select">
 									<option th:each="pb : ${listPhongBan}" th:value="${pb.maphong}"
-										th:text="${pb.tenphong}"></option>
-								</select>
-							</div>
-							<div class="mb-3">
-								<label for="maLuong" class="form-label">Lương:</label> <select
-									id="maLuong" name="maLuong" class="form-select" required>
-									<option value="" disabled selected>Chọn lương</option>
-									<option th:each="lg : ${listLuong}" th:value="${lg.maLuong}"
-										th:text="${lg.luongCoBan}"></option>
+										th:text="${pb.tenphong}"
+										th:selected="${pb.maphong == nhanVien.maPhong}"></option>
 								</select>
 							</div>
 
-							<button type="submit" class="btn btn-primary btn-submit">Thêm
-								Nhân Viên</button>
+							<div class="mb-3">
+								<label for="maLuong">Lương:</label> <select id="maLuong"
+									name="maLuong" class="form-select">
+									<option th:each="lg : ${listLuong}" th:value="${lg.maLuong}"
+										th:text="${lg.luongCoBan}"
+										th:selected="${lg.maLuong == nhanVien.maLuong}"></option>
+								</select>
+							</div>
+
+							<button type="submit" class="btn btn-primary btn-submit">Cập
+								Nhật</button>
 
 						</form>
-
 					</main>
 				</td>
 			</tr>
@@ -124,6 +125,5 @@ form {
 			</tr>
 		</table>
 	</div>
-
 </body>
 </html>
