@@ -115,7 +115,6 @@ public class NhanVienController {
         if (optionalNhanVien.isPresent()) {
             NhanVien nhanVien = optionalNhanVien.get();
             
-            // Giả sử bạn có các service để lấy thông tin PhongBan và Luong
             Optional<PhongBan> optionalPhongBan = phongBanService.getPhongBanById(nhanVien.getMaPhong());
             Optional<Luong> optionalLuong = luongService.getLuongById(nhanVien.getMaLuong());
 
