@@ -22,20 +22,38 @@
 				<img src="images/hero-bg.png" alt="">
 			</div>
 		</div>
-		<form class="form">
+
+		
+			
+			<form class="form" action="/login" method="post">
+				<p class="form-title">Login to your account</p>
+				<div class="input-container">
+					<label for="username">Tên đăng nhập:</label>
+					<input type="text" id="username" name="username" placeholder="Enter username">
+					<span></span>
+				</div>
+				<div class="input-container">
+					<label for="password">Mật khẩu:</label> 
+					<input type="password" id="password" name="password" placeholder="Enter password">
+					<span></span>
+				</div>
+				<button type="submit" class="btn btn-primary btn-block">Đăng nhập</button>
+			</form>
+		
+
+
+		<!-- <form class="form">
 			<p class="form-title">Login to your account</p>
 			<div class="input-container">
-				<input type="text" placeholder="Enter username"> <span>
-				</span>
+				<input type="text" placeholder="Enter username"> 
+				<span></span>
 			</div>
 			<div class="input-container">
 				<input type="password" placeholder="Enter password">
 			</div>
-			<a th:href="@{/nhanVien}" class="btn1">
-                        Login
-                      </a>
+			<a th:href="@{/nhanVien}" class="btn1"> Login </a>
 			<button type="submit" class="submit">Login</button>
-		</form>
+		</form> -->
 	</div>
 </body>
 </html>
