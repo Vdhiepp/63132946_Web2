@@ -4,18 +4,28 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import ch.qos.logback.core.model.Model;
+import hiepvd.QuanLyNhanVien.models.TTNhanVien;
 import hiepvd.QuanLyNhanVien.models.Users;
+import hiepvd.QuanLyNhanVien.services.TTNhanVienService;
 import hiepvd.QuanLyNhanVien.services.UsersService;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class UserController {
 	@Autowired UsersService usersService; 
+	@Autowired TTNhanVienService ttNhanVienService;
+	
+	@GetMapping("/ttNhanVien")
+	public String getAllTTNhanViens(Model model) {
+		List<TTNhanVien> dsTTNV = ttNhanVienService.getAllTTNhanVien();
+		model.addAttribute("dsTTNhanVien", dsTTNV);
+		return "ttnhanvien";
+	}
 	
 	@GetMapping("/login")
     public String login() {
@@ -52,10 +62,6 @@ public class UserController {
             return "login";
         }
     }
-    
-    @GetMapping("/signup")
-    public String showSignupForm() {
-        return "signup"; 
-    }
+
 
 }

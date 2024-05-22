@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+<link rel="shortcut icon" type="images/png" href="images/logo.png">
+
+<title>Nhân viên</title>
+
+<!-- CSS Bootstrap lõi -->
+<link th:href="@{/bootstrap-4.3.1-dist/css/bootstrap.min.css}"
+	rel="stylesheet">
+<!-- CSS tự tạo của mình-->
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+	<div id="menu">
+		<div th:replace="~{fragments/sidebar_nv :: aside}">Siderbar ở đây</div>
+	</div>
+	<div id="content">
+		<table width=100% height=100%>
+			<tr>
+				<td colspan=2>
+					<div th:replace="~{fragments/headerfile :: header}">Header ở
+						đây</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<main>
+						<div class="container-fluid px-4">
+							<h1 class="mt-4">Danh sách nhân viên</h1>
+							<div class="card mb-4">
+								<div class="card-body">
+
+									<table border="1">
+										<thead>
+											<tr>
+												<th>STT</th>
+												<th>Mã nhân viên</th>
+												<th>Nơi sinh</th>
+												<th>Nguyên quán</th>
+												<th>Hộ khẩu thường trú</th>
+												<th>Hộ khẩu tạm trú</th>
+												<th>Số điện thoại</th>
+												<th>Ngày vào</th>
+												<th>Tôn giáo</th>
+												<th>Quốc tịch</th>
+												<th>Ngoại ngữ</th>
+												<th>Học vấn</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr th:each="ttnv : ${dsTTNhanVien}">
+												<td th:text="${ttnv.id}"/>
+												<td th:text="${ttnv.maNV}" />
+												<td th:text="${ttnv.noiSinh}" />
+												<td th:text="${ttnv.nguyenQuan}" />
+												<td th:text="${ttnv.hkThuong}" />
+												<td th:text="${ttnv.hkTam}" />
+												<td th:text="${ttnv.sdt}" />
+												<td th:text="${ttnv.ngayVao}" />
+        										<td th:text="${ttnv.tonGiao}" />
+        										<td th:text="${ttnv.quocTich}" />
+        										<td th:text="${ttnv.ngoaiNgu}" />
+        										<td th:text="${ttnv.hocVan}" />
+												
+
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								 
+
+							</div>
+						</div>
+					</main>
+				</td>
+			</tr>
+			<tr>
+				<td colspan=2>
+					<div th:replace="~{fragments/footerfile :: footer}">Footer ở
+						đây</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+</body>
+</html>

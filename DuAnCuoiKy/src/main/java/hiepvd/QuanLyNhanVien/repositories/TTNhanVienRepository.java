@@ -7,5 +7,5 @@ import hiepvd.QuanLyNhanVien.models.TTNhanVien;
 
 @Repository
 public interface TTNhanVienRepository extends JpaRepository<TTNhanVien, Integer> {
-
+	
 }

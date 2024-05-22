@@ -28,7 +28,7 @@ import hiepvd.QuanLyNhanVien.services.LuongService;
 public class NhanVienController {
 	@Autowired NhanVienService nhanVienService; 
 	@Autowired PhongBanService phongBanService; 
-	@Autowired LuongService luongService;
+	@Autowired LuongService luongService; 
 	
 	@GetMapping("/nhanVien")
 	public String getAllNhanViens(@RequestParam(defaultValue = "0") int page, Model model) {
@@ -56,7 +56,7 @@ public class NhanVienController {
 	    if (result.hasErrors()) {
 	        model.addAttribute("listPhongBan", phongBanService.getAllPhongBan());
 	        model.addAttribute("listLuong", luongService.getAllLuong());
-	        return "themNV"; // Trả về trang form nếu có lỗi
+	        return "themNV"; 
 	    }
 	    
 	    // Kiểm tra giá trị maPhong và maLuong
@@ -108,10 +108,11 @@ public class NhanVienController {
         nhanVienService.deleteNhanVien(maNV);
         return "redirect:/nhanVien";
     }
-
+ 
     @GetMapping("/chitietNV/{maNV}")
     public String chiTietNhanVien(@PathVariable("maNV") String maNV, Model model) {
         Optional<NhanVien> optionalNhanVien = nhanVienService.getNhanVienById(maNV);
+        
         if (optionalNhanVien.isPresent()) {
             NhanVien nhanVien = optionalNhanVien.get();
             
