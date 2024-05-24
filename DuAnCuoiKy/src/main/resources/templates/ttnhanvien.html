@@ -40,6 +40,11 @@
 											<tr>
 												<th>STT</th>
 												<th>Mã nhân viên</th>
+												<th>Tên nhân viên</th>
+												<th>CMND</th>
+												<th>Giới tính</th>
+												<th>Ngày sinh</th>
+												<th>Chức vụ</th>
 												<th>Nơi sinh</th>
 												<th>Nguyên quán</th>
 												<th>Hộ khẩu thường trú</th>
@@ -53,9 +58,14 @@
 											</tr>
 										</thead>
 										<tbody>
-											<tr th:each="ttnv : ${dsTTNhanVien}">
+											<tr th:each="ttnv, stat : ${dsTTNhanVien}">
 												<td th:text="${ttnv.id}"/>
-												<td th:text="${ttnv.maNV}" />
+												<td th:text="${dsNhanVien[stat.index].maNV}" />
+												<td th:text="${dsNhanVien[stat.index].tenNV}"/>
+    											<td th:text="${dsNhanVien[stat.index].cmnd}"/>
+    											<td th:text="${dsNhanVien[stat.index].gioiTinh}"/>
+    											<td th:text="${dsNhanVien[stat.index].ngaySinh}" />
+												<td th:text="${dsNhanVien[stat.index].chucVu}" />
 												<td th:text="${ttnv.noiSinh}" />
 												<td th:text="${ttnv.nguyenQuan}" />
 												<td th:text="${ttnv.hkThuong}" />

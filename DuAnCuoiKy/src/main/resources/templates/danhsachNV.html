@@ -41,7 +41,7 @@
 												<th>STT</th>
 												<th>Mã nhân viên</th>
 												<th>Tên nhân viên</th>
-												<th>Chứng minh nhân dân</th>
+												<th>CMND</th>
 												<th>Giới tính</th>
 												<th>Ngày sinh</th>
 												<th>Chức vụ</th>
@@ -79,9 +79,7 @@
 								<div class="pagination d-flex justify-content-center mt-4">
 									<a th:href="@{/nhanVien(page=${dsNhanVien.number - 1})}"
 										th:if="${dsNhanVien.hasPrevious()}"
-										class="btn btn-primary btn-sm me-2">Trang Trước</a> <span
-										class="align-self-center me-2">Trang
-										[[${dsNhanVien.number + 1}]] trên [[${dsNhanVien.totalPages}]]</span>
+										class="btn btn-primary btn-sm me-2">Trang Trước</a> 
 									<a th:href="@{/nhanVien(page=${dsNhanVien.number + 1})}"
 										th:if="${dsNhanVien.hasNext()}" class="btn btn-primary btn-sm">Trang
 										Sau</a>

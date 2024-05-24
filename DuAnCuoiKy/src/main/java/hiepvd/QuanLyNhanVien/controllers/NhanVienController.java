@@ -19,9 +19,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import hiepvd.QuanLyNhanVien.models.NhanVien;
 import hiepvd.QuanLyNhanVien.models.PhongBan;
 import hiepvd.QuanLyNhanVien.models.Luong;
+import hiepvd.QuanLyNhanVien.models.TTNhanVien;
 import hiepvd.QuanLyNhanVien.services.NhanVienService;
 import hiepvd.QuanLyNhanVien.services.PhongBanService;
 import hiepvd.QuanLyNhanVien.services.LuongService;
+import hiepvd.QuanLyNhanVien.services.TTNhanVienService;
 
 
 @Controller
@@ -29,6 +31,7 @@ public class NhanVienController {
 	@Autowired NhanVienService nhanVienService; 
 	@Autowired PhongBanService phongBanService; 
 	@Autowired LuongService luongService; 
+	@Autowired TTNhanVienService ttNhanVienService; 
 	
 	@GetMapping("/nhanVien")
 	public String getAllNhanViens(@RequestParam(defaultValue = "0") int page, Model model) {
@@ -39,8 +42,9 @@ public class NhanVienController {
     }
 	
 	@GetMapping("/themNV")
-    public String themSanPhamForm(Model model) {
+    public String themNhanVienForm(Model model) {
         model.addAttribute("nhanVien", new NhanVien());
+        model.addAttribute("ttNhanVien", new TTNhanVien());
         
         List<PhongBan> listPhongBan = phongBanService.getAllPhongBan();
         model.addAttribute("listPhongBan", listPhongBan);
@@ -52,14 +56,14 @@ public class NhanVienController {
     }
 
 	@PostMapping("/themNV")
-	public String themNhanVien(@ModelAttribute NhanVien nhanVien, BindingResult result, Model model) {
+	public String themNhanVien(@ModelAttribute NhanVien nhanVien, @ModelAttribute TTNhanVien ttNhanVien, BindingResult result, Model model) {
 	    if (result.hasErrors()) {
 	        model.addAttribute("listPhongBan", phongBanService.getAllPhongBan());
 	        model.addAttribute("listLuong", luongService.getAllLuong());
 	        return "themNV"; 
 	    }
 	    
-	    // Kiểm tra giá trị maPhong và maLuong
+	    // Kiểm tra giá trị maPhong và maLuong cho NhanVien
 	    if (nhanVien.getMaPhong() == null || nhanVien.getMaPhong().isEmpty()) {
 	        result.rejectValue("maPhong", "error.maPhong", "Phòng không được để trống");
 	        model.addAttribute("listPhongBan", phongBanService.getAllPhongBan());
@@ -75,8 +79,11 @@ public class NhanVienController {
 	    }
 
 	    nhanVienService.saveNhanVien(nhanVien);
+	    ttNhanVienService.saveTTNhanVien(ttNhanVien); 
+
 	    return "redirect:/nhanVien";
 	}
+
 
 	@GetMapping("/suaNV/{maNV}")
     public String suaNhanVienForm(@PathVariable("maNV") String maNV, Model model) {
@@ -111,6 +118,12 @@ public class NhanVienController {
  
     @GetMapping("/chitietNV/{maNV}")
     public String chiTietNhanVien(@PathVariable("maNV") String maNV, Model model) {
+        // Trích xuất phần số từ mã nhân viên
+        String maNVSauKhiTrichXuat = maNV.substring(2); // Lấy phần số sau "NV"
+        
+        // Chuyển đổi sang kiểu Integer
+        Integer maNhanVienInt = Integer.parseInt(maNVSauKhiTrichXuat);
+        
         Optional<NhanVien> optionalNhanVien = nhanVienService.getNhanVienById(maNV);
         
         if (optionalNhanVien.isPresent()) {
@@ -119,15 +132,20 @@ public class NhanVienController {
             Optional<PhongBan> optionalPhongBan = phongBanService.getPhongBanById(nhanVien.getMaPhong());
             Optional<Luong> optionalLuong = luongService.getLuongById(nhanVien.getMaLuong());
 
+            // Lấy thông tin TTNhanVien tương ứng với maNhanVienInt
+            Optional<TTNhanVien> optionalTTNhanVien = ttNhanVienService.getTTNhanVienById(maNhanVienInt);
+            
             model.addAttribute("nhanVien", nhanVien);
             model.addAttribute("phongBan", optionalPhongBan.orElse(null));
             model.addAttribute("luong", optionalLuong.orElse(null));
+            model.addAttribute("ttNhanVien", optionalTTNhanVien.orElse(null)); // Thêm TTNhanVien vào model
             
             return "chitietNV";
         } else {
             return "redirect:/nhanVien";
         }
     }
+
 
 
 

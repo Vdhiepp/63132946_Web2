@@ -51,7 +51,7 @@ public class TTNhanVien {
 	private String hocVan;
 
 	public TTNhanVien() {
-		
+		super();
 	}
 
 	public TTNhanVien(int id, String maNV, String noiSinh, String nguyenQuan, String hkThuong, String hkTam, int sdt,

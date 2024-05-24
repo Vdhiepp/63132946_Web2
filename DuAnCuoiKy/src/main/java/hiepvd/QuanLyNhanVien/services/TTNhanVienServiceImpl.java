@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import hiepvd.QuanLyNhanVien.models.TTNhanVien;
@@ -32,5 +34,10 @@ public class TTNhanVienServiceImpl implements TTNhanVienService{
 	public void deleteTTNhanVien(int id) {
 		ttNhanVienRepository.deleteById(id);
 	}
+	
+	@Override
+    public Page<TTNhanVien> getAllTTNhanViens(Pageable pageable) {
+        return ttNhanVienRepository.findAll(pageable);
+    }
 
 }

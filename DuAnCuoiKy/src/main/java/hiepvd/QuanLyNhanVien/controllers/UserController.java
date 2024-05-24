@@ -11,19 +11,24 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import hiepvd.QuanLyNhanVien.models.TTNhanVien;
 import hiepvd.QuanLyNhanVien.models.Users;
+import hiepvd.QuanLyNhanVien.models.NhanVien;
 import hiepvd.QuanLyNhanVien.services.TTNhanVienService;
 import hiepvd.QuanLyNhanVien.services.UsersService;
+import hiepvd.QuanLyNhanVien.services.NhanVienService;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class UserController {
 	@Autowired UsersService usersService; 
 	@Autowired TTNhanVienService ttNhanVienService;
+	@Autowired NhanVienService nhanVienService;
 	
 	@GetMapping("/ttNhanVien")
 	public String getAllTTNhanViens(Model model) {
 		List<TTNhanVien> dsTTNV = ttNhanVienService.getAllTTNhanVien();
 		model.addAttribute("dsTTNhanVien", dsTTNV);
+		List<NhanVien> dsNV = nhanVienService.getAllNhanVien();
+		model.addAttribute("dsNhanVien", dsNV);
 		return "ttnhanvien";
 	}
 	
