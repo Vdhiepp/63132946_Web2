@@ -86,35 +86,67 @@ public class NhanVienController {
 
 
 	@GetMapping("/suaNV/{maNV}")
-    public String suaNhanVienForm(@PathVariable("maNV") String maNV, Model model) {
-        Optional<NhanVien> optionalNhanVien = nhanVienService.getNhanVienById(maNV);
-        if (optionalNhanVien.isPresent()) {
-            model.addAttribute("nhanVien", optionalNhanVien.get());
-            
-            List<PhongBan> listPhongBan = phongBanService.getAllPhongBan();
-            model.addAttribute("listPhongBan", listPhongBan);
-            
-            List<Luong> listLuong = luongService.getAllLuong();
-            model.addAttribute("listLuong", listLuong);
+	public String suaNhanVienForm(@PathVariable("maNV") String maNV, Model model) {
+	    Optional<NhanVien> optionalNhanVien = nhanVienService.getNhanVienById(maNV);
+	    if (optionalNhanVien.isPresent()) {
+	        NhanVien nhanVien = optionalNhanVien.get();
+	        model.addAttribute("nhanVien", nhanVien);
+	        
+	        // Fetch TTNhanVien entity by maNV
+	        Optional<TTNhanVien> optionalTTNhanVien = ttNhanVienService.getTTNhanVienByMaNV(maNV);
+	        if (optionalTTNhanVien.isPresent()) {
+	            TTNhanVien ttNhanVien = optionalTTNhanVien.get();
+	            model.addAttribute("ttNhanVien", ttNhanVien);
+	        } else {
+	            // Create a new TTNhanVien instance if not found
+	            TTNhanVien newTTNhanVien = new TTNhanVien();
+	            newTTNhanVien.setMaNV(maNV);
+	            model.addAttribute("ttNhanVien", newTTNhanVien);
+	        }
+	        
+	        List<PhongBan> listPhongBan = phongBanService.getAllPhongBan();
+	        model.addAttribute("listPhongBan", listPhongBan);
+	        
+	        List<Luong> listLuong = luongService.getAllLuong();
+	        model.addAttribute("listLuong", listLuong);
 
-            return "suaNV";
-        } else {
-            return "redirect:/nhanVien";
-        }
-    }
+	        return "suaNV";
+	    } else {
+	        return "redirect:/nhanVien";
+	    }
+	}
 
-    @PostMapping("/suaNV")
-    public String suaNhanVien(@RequestParam("maNV") String maNV, NhanVien nhanVien) {
-    	nhanVien.setMaNV(maNV);
-    	nhanVienService.saveNhanVien(nhanVien);
-        return "redirect:/nhanVien";
-    }
+
+	@PostMapping("/suaNV")
+	public String suaNhanVien(@RequestParam("maNV") String maNV, NhanVien nhanVien, TTNhanVien ttNhanVien) {
+	    nhanVien.setMaNV(maNV);
+	    nhanVienService.saveNhanVien(nhanVien);
+	    
+	    // Lưu hoặc cập nhật thông tin của TTNhanVien
+	    ttNhanVien.setMaNV(maNV); // Đảm bảo rằng maNV đã được thiết lập cho TTNhanVien
+	    ttNhanVienService.saveTTNhanVien(ttNhanVien);
+	    
+	    return "redirect:/nhanVien";
+	}
+
 
     @GetMapping("/xoaNV/{maNV}")
     public String xoaNhanVien(@PathVariable("maNV") String maNV) {
+        // Lấy thông tin TTNhanVien dựa trên mã nhân viên
+        Optional<TTNhanVien> optionalTTNhanVien = ttNhanVienService.getTTNhanVienByMaNV(maNV);
+
+        // Kiểm tra xem có thông tin TTNhanVien tương ứng không
+        optionalTTNhanVien.ifPresent(ttNhanVien -> {
+            // Nếu có, xóa thông tin TTNhanVien
+            ttNhanVienService.deleteTTNhanVien(ttNhanVien);
+        });
+
+        // Xóa thông tin nhân viên từ bảng NhanVien
         nhanVienService.deleteNhanVien(maNV);
+        
         return "redirect:/nhanVien";
     }
+
  
     @GetMapping("/chitietNV/{maNV}")
     public String chiTietNhanVien(@PathVariable("maNV") String maNV, Model model) {

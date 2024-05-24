@@ -20,8 +20,8 @@ body {
 }
 
 form {
-	max-width: 600px;
-	margin: 0 auto;
+	max-width: auto;
+	margin: 0 50px;
 	background-color: #fff;
 	padding: 20px;
 	border-radius: 8px;
@@ -58,55 +58,124 @@ form {
 					<main>
 						<h2 class="text-center mb-4">Chỉnh Sửa Thông Tin Nhân Viên</h2>
 						<form action="/suaNV" method="post">
-							<input type="hidden" id="maNV" name="maNV"
-								th:value="${nhanVien.maNV}">
+							<div class="row">
+								<div class="col-md-6">
+									<input type="hidden" id="maNV" name="maNV"
+										th:value="${nhanVien.maNV}">
 
-							<div class="mb-3">
-								<label for="tenNV" class="form-label">Tên Nhân Viên:</label> <input
-									type="text" id="tenNV" name="tenNV" class="form-control"
-									th:value="${nhanVien.tenNV}">
-							</div>
+									<div class="mb-3">
+										<label for="tenNV" class="form-label">Tên Nhân Viên:</label> <input
+											type="text" id="tenNV" name="tenNV" class="form-control"
+											th:value="${nhanVien.tenNV}">
+									</div>
 
-							<div class="mb-3">
-								<label for="cmnd" class="form-label">CMND:</label> <input
-									type="number" id="cmnd" name="cmnd" class="form-control"
-									th:value="${nhanVien.cmnd}">
-							</div>
+									<div class="mb-3">
+										<label for="cmnd" class="form-label">CMND:</label> <input
+											type="number" id="cmnd" name="cmnd" class="form-control"
+											th:value="${nhanVien.cmnd}">
+									</div>
 
-							<div class="mb-3">
-								<label for="gioiTinh" class="form-label">Giới tính:</label> <input
-									type="text" id="gioiTinh" name="gioiTinh" class="form-control"
-									th:value="${nhanVien.gioiTinh}">
-							</div>
+									<div class="mb-3">
+										<label for="gioiTinh" class="form-label">Giới tính:</label> <input
+											type="text" id="gioiTinh" name="gioiTinh"
+											class="form-control" th:value="${nhanVien.gioiTinh}">
+									</div>
 
-							<div class="mb-3">
-								<label for="ngaySinh" class="form-label">Ngày sinh:</label> <input
-									type="date" id="ngaySinh" name="ngaySinh" class="form-control"
-									th:value="${nhanVien.ngaySinh}">
-							</div>
+									<div class="mb-3">
+										<label for="ngaySinh" class="form-label">Ngày sinh:</label> <input
+											type="date" id="ngaySinh" name="ngaySinh"
+											class="form-control" th:value="${nhanVien.ngaySinh}">
+									</div>
+									
+									<div class="mb-3">
+										<label for="chucVu" class="form-label">Chức vụ:</label> <input
+											type="text" id="chucVu" name="chucVu" class="form-control"
+											th:value="${nhanVien.chucVu}">
+									</div>
 
-							<div class="mb-3">
-								<label for="chucVu" class="form-label">Chức vụ:</label> <input
-									type="text" id="chucVu" name="chucVu" class="form-control"
-									th:value="${nhanVien.chucVu}">
-							</div>
+									<div class="mb-3">
+										<label for="maPhong">Phòng ban:</label> <select id="maPhong"
+											name="maPhong" class="form-select">
+											<option th:each="pb : ${listPhongBan}"
+												th:value="${pb.maphong}" th:text="${pb.tenphong}"
+												th:selected="${pb.maphong == nhanVien.maPhong}"></option>
+										</select>
+									</div>
 
-							<div class="mb-3">
-								<label for="maPhong">Phòng ban:</label> <select id="maPhong"
-									name="maPhong" class="form-select">
-									<option th:each="pb : ${listPhongBan}" th:value="${pb.maphong}"
-										th:text="${pb.tenphong}"
-										th:selected="${pb.maphong == nhanVien.maPhong}"></option>
-								</select>
-							</div>
+									<div class="mb-3">
+										<label for="maLuong">Lương:</label> <select id="maLuong"
+											name="maLuong" class="form-select">
+											<option th:each="lg : ${listLuong}" th:value="${lg.maLuong}"
+												th:text="${lg.luongCoBan}"
+												th:selected="${lg.maLuong == nhanVien.maLuong}"></option>
+										</select>
+									</div>
+									
+								</div>
+								<div class="col-md-6">
+								
+									<input type="hidden" id="maNV" name="ttNhanVien.maNV" th:value="${ttNhanVien.maNV}">
+									
+									<div class="mb-3">
+										<label for="noiSinh" class="form-label">Nơi Sinh:</label> <input
+											type="text" id="noiSinh" name="noiSinh" class="form-control"
+											th:value="${ttNhanVien.noiSinh}">
+									</div>
 
-							<div class="mb-3">
-								<label for="maLuong">Lương:</label> <select id="maLuong"
-									name="maLuong" class="form-select">
-									<option th:each="lg : ${listLuong}" th:value="${lg.maLuong}"
-										th:text="${lg.luongCoBan}"
-										th:selected="${lg.maLuong == nhanVien.maLuong}"></option>
-								</select>
+									<div class="mb-3">
+										<label for="nguyenQuan" class="form-label">Nguyên
+											quán:</label> <input type="text" id="nguyenQuan" name="nguyenQuan"
+											class="form-control" th:value="${ttNhanVien.nguyenQuan}">
+									</div>
+
+									<div class="mb-3">
+										<label for="hkThuong" class="form-label">Hộ khẩu
+											thường trú:</label> <input type="text" id="hkThuong" name="hkThuong"
+											class="form-control" th:value="${ttNhanVien.hkThuong}">
+									</div>
+
+									<div class="mb-3">
+										<label for="hkTam" class="form-label">Hộ khẩu tạm trú:</label>
+										<input type="text" id="hkTam" name="hkTam"
+											class="form-control" th:value="${ttNhanVien.hkTam}">
+									</div>
+								
+									<div class="mb-3">
+										<label for="sdt" class="form-label">Số điện thoại:</label> <input
+											type="number" id="sdt" name="sdt" class="form-control"
+											th:value="${ttNhanVien.sdt}">
+									</div>
+
+									<div class="mb-3">
+										<label for="ngayVao" class="form-label">Ngày vào công
+											ty:</label> <input type="date" id="ngayVao" name="ngayVao"
+											class="form-control" th:value="${ttNhanVien.ngayVao}">
+									</div>
+
+									<div class="mb-3">
+										<label for="tonGiao" class="form-label">Tôn giáo:</label> <input
+											type="text" id="tonGiao" name="tonGiao" class="form-control"
+											th:value="${ttNhanVien.tonGiao}">
+									</div>
+
+									<div class="mb-3">
+										<label for="quocTich" class="form-label">Quốc tịch:</label> <input
+											type="text" id="quocTich" name="quocTich"
+											class="form-control" th:value="${ttNhanVien.quocTich}">
+									</div>
+
+									<div class="mb-3">
+										<label for="ngoaiNgu" class="form-label">Trình độ
+											ngoại ngữ:</label> <input type="text" id="ngoaiNgu" name="ngoaiNgu"
+											class="form-control" th:value="${ttNhanVien.ngoaiNgu}">
+									</div>
+
+									<div class="mb-3">
+										<label for="hocVan" class="form-label">Trình độ học
+											vấn:</label> <input type="text" id="hocVan" name="hocVan"
+											class="form-control" th:value="${ttNhanVien.hocVan}">
+									</div>
+								</div>
 							</div>
 
 							<button type="submit" class="btn btn-primary btn-submit">Cập

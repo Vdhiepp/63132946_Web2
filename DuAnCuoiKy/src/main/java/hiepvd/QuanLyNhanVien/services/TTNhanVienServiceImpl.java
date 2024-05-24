@@ -39,5 +39,15 @@ public class TTNhanVienServiceImpl implements TTNhanVienService{
     public Page<TTNhanVien> getAllTTNhanViens(Pageable pageable) {
         return ttNhanVienRepository.findAll(pageable);
     }
+	
+	@Override
+    public Optional<TTNhanVien> getTTNhanVienByMaNV(String maNV) {
+        return ttNhanVienRepository.findByMaNV(maNV);
+    }
+
+    @Override
+    public void deleteTTNhanVien(TTNhanVien ttNhanVien) {
+        ttNhanVienRepository.delete(ttNhanVien);
+    }
 
 }

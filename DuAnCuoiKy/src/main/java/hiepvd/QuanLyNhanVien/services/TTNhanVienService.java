@@ -16,4 +16,6 @@ public interface TTNhanVienService {
 	TTNhanVien saveTTNhanVien(TTNhanVien ttNhanVien);
 	void deleteTTNhanVien(int id);
 	Page<TTNhanVien> getAllTTNhanViens(Pageable pageable);
+	Optional<TTNhanVien> getTTNhanVienByMaNV(String maNV);
+    void deleteTTNhanVien(TTNhanVien ttNhanVien);
 }
