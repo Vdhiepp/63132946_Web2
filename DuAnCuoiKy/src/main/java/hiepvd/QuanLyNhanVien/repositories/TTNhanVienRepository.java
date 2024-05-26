@@ -9,5 +9,5 @@ import hiepvd.QuanLyNhanVien.models.TTNhanVien;
 
 @Repository
 public interface TTNhanVienRepository extends JpaRepository<TTNhanVien, Integer> {
-	Optional<TTNhanVien> findByMaNV(String maNV);
+	Optional<TTNhanVien> findFirstByMaNV(String maNV);
 }

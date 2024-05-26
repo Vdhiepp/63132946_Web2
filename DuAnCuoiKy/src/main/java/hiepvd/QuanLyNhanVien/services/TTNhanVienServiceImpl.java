@@ -35,7 +35,7 @@ public class TTNhanVienServiceImpl implements TTNhanVienService{
 	
 	@Override
     public Optional<TTNhanVien> getTTNhanVienByMaNV(String maNV) {
-        return ttNhanVienRepository.findByMaNV(maNV);
+        return ttNhanVienRepository.findFirstByMaNV(maNV);
     }
 
     @Override
