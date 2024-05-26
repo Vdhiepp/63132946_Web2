@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+<link rel="shortcut icon" type="images/png" href="images/logo.png">
+
+<title>Gửi phản hồi</title>
+
+<!-- CSS Bootstrap lõi -->
+<link th:href="@{/bootstrap-4.3.1-dist/css/bootstrap.min.css}"
+	rel="stylesheet">
+<!-- CSS tự tạo của mình -->
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+<style>
+form {
+	max-width: auto;
+	margin: 0 200px;
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-label {
+	font-weight: bold;
+}
+
+.form-control {
+	margin-bottom: 20px;
+}
+
+.btn-submit {
+	margin-right: 10px;
+}
+</style>
+</head>
+<body>
+	<div id="menu">
+		<div th:replace="~{fragments/sidebar_nv :: aside}">Sidebar ở đây</div>
+	</div>
+	<div id="content">
+		<table width=100% height=100%>
+			<tr>
+				<td colspan=2>
+					<div th:replace="~{fragments/headerfile_nv :: header}">Header ở
+						đây</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<main>
+						<h2 class="text-center">Phản hồi của nhân viên</h2>
+						<form action="#" th:action="@{/sendEmail}" method="post">
+							<label for="toEmail" class="form-label">To Email:</label> 
+							<input type="email" class="form-control" id="toEmail" name="toEmail" value="vodaihiep209@gmail.com" required> <br> 
+							<label for="subject" class="form-label" >Tiêu đề:</label> 
+							<input type="text" class="form-control" id="subject" name="subject" required> <br> 
+							<label for="body" class="form-label">Nội dung:</label>
+							<textarea id="body" class="form-control" style="height: 200px;" name="body" required></textarea> <br>
+							
+							<button type="submit" class="btn btn-primary btn-submit">Gửi Email</button>
+						</form>
+						<br>
+						<p class="ml-5">Email của Admin: vodaihiep209@gmail.com</p>
+						<p class="ml-5">Email của kỹ thuật viên: kythuatvien@gmail.com</p> <br>
+						
+					</main>
+				</td>
+			</tr>
+			<tr>
+				<td colspan=2>
+					<div th:replace="~{fragments/footerfile :: footer}">Footer ở
+						đây</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

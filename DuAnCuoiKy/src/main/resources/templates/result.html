@@ -7,14 +7,35 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
 <link rel="shortcut icon" type="images/png" href="images/logo.png">
 
-<title>Trang Nhân Viên</title>
+<title>Gửi phản hồi</title>
 
 <!-- CSS Bootstrap lõi -->
 <link th:href="@{/bootstrap-4.3.1-dist/css/bootstrap.min.css}"
 	rel="stylesheet">
 <!-- CSS tự tạo của mình -->
 <link th:href="@{/css/style.css}" rel="stylesheet" />
+<style>
+form {
+	max-width: auto;
+	margin: 0 200px;
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
+.form-label {
+	font-weight: bold;
+}
+
+.form-control {
+	margin-bottom: 20px;
+}
+
+.btn-submit {
+	margin-right: 10px;
+}
+</style>
 </head>
 <body>
 	<div id="menu">
@@ -24,15 +45,17 @@
 		<table width=100% height=100%>
 			<tr>
 				<td colspan=2>
-					<div th:replace="~{fragments/headerfile_nv :: header}">Header ở
-						đây</div>
+					<div th:replace="~{fragments/headerfile_nv :: header}">Header
+						ở đây</div>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<main>
-						<h2 class="text-center mb-4">Trang Nhân Viên</h2>
-						
+					<main>		
+						<br><br>				
+						<h4 class="text-center" th:text="${message}"></h4>
+						<br><br><br><br><br><br><br>
+							<a class="ml-5" href="/sendEmailForm">Gửi email khác</a>										
 					</main>
 				</td>
 			</tr>
