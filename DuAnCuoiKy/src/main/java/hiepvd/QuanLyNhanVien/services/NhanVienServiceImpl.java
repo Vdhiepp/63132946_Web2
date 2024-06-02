@@ -42,5 +42,9 @@ public class NhanVienServiceImpl implements NhanVienService {
         return nhanVienRepository.findAll(pageable);
     }
 
-
+	@Override
+    public Page<NhanVien> searchNhanViensByTenNV(String tenNV, Pageable pageable) {
+        return nhanVienRepository.findByTenNVContainingIgnoreCase(tenNV, pageable);
+    }
+	
 }

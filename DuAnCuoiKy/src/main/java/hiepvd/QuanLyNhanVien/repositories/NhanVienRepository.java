@@ -10,4 +10,5 @@ import hiepvd.QuanLyNhanVien.models.NhanVien;
 @Repository
 public interface NhanVienRepository extends JpaRepository<NhanVien, String> {
 	Page<NhanVien> findAll(Pageable pageable);
+	Page<NhanVien> findByTenNVContainingIgnoreCase(String tenNV, Pageable pageable);
 }

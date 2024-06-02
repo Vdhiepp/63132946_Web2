@@ -41,6 +41,17 @@ public class NhanVienController {
         return "danhsachNV";
     }
 	
+	@GetMapping("/nhanVien/search")
+	public String searchNhanViens(@RequestParam(defaultValue = "0") int page,
+	                              @RequestParam String search,
+	                              Model model) {
+	    Pageable pageable = PageRequest.of(page, 10);
+	    Page<NhanVien> dsNhanVien = nhanVienService.searchNhanViensByTenNV(search, pageable);
+	    model.addAttribute("dsNhanVien", dsNhanVien);
+	    model.addAttribute("search", search); // Để giữ lại từ khóa tìm kiếm trong form
+	    return "danhsachNV";
+	}
+	
 	@GetMapping("/themNV")
     public String themNhanVienForm(Model model) {
         model.addAttribute("nhanVien", new NhanVien());
@@ -92,13 +103,12 @@ public class NhanVienController {
 	        NhanVien nhanVien = optionalNhanVien.get();
 	        model.addAttribute("nhanVien", nhanVien);
 	        
-	        // Fetch TTNhanVien entity by maNV
 	        Optional<TTNhanVien> optionalTTNhanVien = ttNhanVienService.getTTNhanVienByMaNV(maNV);
 	        if (optionalTTNhanVien.isPresent()) {
 	            TTNhanVien ttNhanVien = optionalTTNhanVien.get();
 	            model.addAttribute("ttNhanVien", ttNhanVien);
 	        } else {
-	            // Create a new TTNhanVien instance if not found
+	            
 	            TTNhanVien newTTNhanVien = new TTNhanVien();
 	            newTTNhanVien.setMaNV(maNV);
 	            model.addAttribute("ttNhanVien", newTTNhanVien);
@@ -185,6 +195,17 @@ public class NhanVienController {
         model.addAttribute("dsNhanVien", dsNhanVien);
         return "danhsachTTNV";
     }
+    
+    @GetMapping("/TTNhanVien/search")
+	public String searchTTNhanViens(@RequestParam(defaultValue = "0") int page,
+	                              @RequestParam String search,
+	                              Model model) {
+	    Pageable pageable = PageRequest.of(page, 10);
+	    Page<NhanVien> dsNhanVien = nhanVienService.searchNhanViensByTenNV(search, pageable);
+	    model.addAttribute("dsNhanVien", dsNhanVien);
+	    model.addAttribute("search", search); // Để giữ lại từ khóa tìm kiếm trong form
+	    return "danhsachTTNV";
+	}
     
     @GetMapping("/chitietTTNV/{maNV}")
     public String chiTietTTNhanVien(@PathVariable("maNV") String maNV, Model model) {

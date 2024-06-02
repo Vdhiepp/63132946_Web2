@@ -16,5 +16,5 @@ public interface NhanVienService {
 	NhanVien saveNhanVien(NhanVien nhanVien);
 	void deleteNhanVien(String manv);
 	Page<NhanVien> getAllNhanViens(Pageable pageable);
-	
+	Page<NhanVien> searchNhanViensByTenNV(String tenNV, Pageable pageable);
 }
