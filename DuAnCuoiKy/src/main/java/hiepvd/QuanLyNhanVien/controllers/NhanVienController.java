@@ -178,7 +178,41 @@ public class NhanVienController {
         }
     }
 
+    @GetMapping("/TTNhanVien")
+	public String getAllTTNhanViens(@RequestParam(defaultValue = "0") int page, Model model) {
+        Pageable pageable = PageRequest.of(page, 10); 
+        Page<NhanVien> dsNhanVien = nhanVienService.getAllNhanViens(pageable);
+        model.addAttribute("dsNhanVien", dsNhanVien);
+        return "danhsachTTNV";
+    }
+    
+    @GetMapping("/chitietTTNV/{maNV}")
+    public String chiTietTTNhanVien(@PathVariable("maNV") String maNV, Model model) {
+        // Trích xuất phần số từ mã nhân viên
+        String maNVSauKhiTrichXuat = maNV.substring(2); // Lấy phần số sau "NV"
+        
+        // Chuyển đổi sang kiểu Integer
+        Integer maNhanVienInt = Integer.parseInt(maNVSauKhiTrichXuat);
+        
+        Optional<NhanVien> optionalNhanVien = nhanVienService.getNhanVienById(maNV);
+                
+        if (optionalNhanVien.isPresent()) {
+            NhanVien nhanVien = optionalNhanVien.get();
 
+            Optional<PhongBan> optionalPhongBan = phongBanService.getPhongBanById(nhanVien.getMaPhong());
+            
+            // Lấy thông tin TTNhanVien tương ứng với maNhanVienInt
+            Optional<TTNhanVien> optionalTTNhanVien = ttNhanVienService.getTTNhanVienById(maNhanVienInt);
+            
+            model.addAttribute("nhanVien", nhanVien);
+            model.addAttribute("phongBan", optionalPhongBan.orElse(null));
+            model.addAttribute("ttNhanVien", optionalTTNhanVien.orElse(null)); // Thêm TTNhanVien vào model
+            
+            return "chitietTTNV";
+        } else {
+            return "redirect:/TTNhanVien";
+        }
+    }
 
 
 

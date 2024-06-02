@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+<link rel="shortcut icon" type="images/png" href="images/logo.png">
+
+<title>Thêm Người Dùng</title>
+
+<!-- CSS Bootstrap lõi -->
+<link th:href="@{/bootstrap-4.3.1-dist/css/bootstrap.min.css}"
+	rel="stylesheet">
+<!-- CSS tự tạo của mình-->
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+<style>
+
+form {
+	max-width: auto;
+	margin: 0 50px;
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-label {
+	font-weight: bold;
+}
+
+.form-control {
+	margin-bottom: 20px;
+}
+
+.btn-submit {
+	margin-right: 10px;
+}
+</style>
+
+
+</head>
+<body>
+	<div id="menu">
+		<div th:replace="~{fragments/sidebar :: aside}">Siderbar ở đây</div>
+	</div>
+	<div id="content">
+		<table width=100% height=100%>
+			<tr>
+				<td colspan=2>
+					<div th:replace="~{fragments/headerfile :: header}">Header ở
+						đây</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<main>
+						<h2 class="text-center">Thêm Người Dùng</h2>
+						<form action="/themND" method="post">
+							
+									<div class="mb-3">
+										<label for="id" class="form-label">Mã người dùng:</label> <input
+											type="number" id="id" name="id" class="form-control"
+											th:value="${user.id}">
+									</div>
+									<div class="mb-3">
+										<label for="hoTen" class="form-label">Tên người dùng:</label> <input
+											type="text" id="hoTen" name="hoTen" class="form-control"
+											th:value="${user.hoTen}">
+									</div>
+									<div class="mb-3">
+										<label for="userName" class="form-label">Tài khoản:</label> <input
+											type="text" id="userName" name="userName" class="form-control"
+											th:value="${user.userName}">
+									</div>
+									<div class="mb-3">
+										<label for="pass" class="form-label">Mật khẩu:</label> <input
+											type="text" id="pass" name="pass" class="form-control"
+											th:value="${user.pass}">
+									</div>
+									<div class="mb-3">
+										<label for="quyen" class="form-label">Quyền:</label> <input
+											type="text" id="quyen" name="quyen" class="form-control"
+											th:value="${user.quyen}">
+									</div>
+
+							<button type="submit" class="btn btn-primary btn-submit">Thêm
+								Người Dùng</button>
+
+						</form>
+
+					</main>
+				</td>
+			</tr>
+			<tr>
+				<td colspan=2>
+					<div th:replace="~{fragments/footerfile :: footer}">Footer ở
+						đây</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+</body>
+</html>

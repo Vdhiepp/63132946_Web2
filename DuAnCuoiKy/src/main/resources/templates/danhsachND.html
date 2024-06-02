@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+<link rel="shortcut icon" type="images/png" href="images/logo.png">
+
+<title>Người dùng</title>
+
+<!-- CSS Bootstrap lõi -->
+<link th:href="@{/bootstrap-4.3.1-dist/css/bootstrap.min.css}"
+	rel="stylesheet">
+<!-- CSS tự tạo của mình-->
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+	<div id="menu">
+		<div th:replace="~{fragments/sidebar :: aside}">Siderbar ở đây</div>
+	</div>
+	<div id="content">
+		<table width=100% height=100%>
+			<tr>
+				<td colspan=2>
+					<div th:replace="~{fragments/headerfile :: header}">Header ở
+						đây</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<main>
+						<div class="container-fluid px-4">
+							<h1 class="mt-4">Danh sách người dùng</h1>
+							<a href="/themND" class="btn btn-primary">Thêm Người Dùng</a>
+							<div class="card mb-4">
+								<div class="card-body">
+
+									<table class="text-center" border="1">
+										<thead>
+											<tr class="text-center">
+												
+												<th>Mã</th>
+												<th>Tên người dùng</th>
+												<th>Tài khoản</th>
+												<th>Mật khẩu</th>
+												<th>Quyền</th>
+												<th></th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr th:each="nd : ${dsND}">
+												<td th:text="${nd.id}" />
+												<td th:text="${nd.hoTen}" />
+												<td th:text="${nd.userName}" />
+												<td th:text="${nd.pass}" />
+												<td th:text="${nd.quyen}" />
+												<td><a
+													th:href="@{/suaND/{id}(id=${nd.id})}"
+													class="btn btn-success btn-action">Sửa</a> <a
+													th:href="@{/xoaND/{id}(id=${nd.id})}"
+													class="btn btn-danger btn-action"
+													onclick="return confirm('Bạn có chắc muốn xóa không?')">Xóa</a>
+												</td>
+
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								
+							</div>
+						</div>
+					</main>
+				</td>
+			</tr>
+			<tr>
+				<td colspan=2>
+					<div th:replace="~{fragments/footerfile :: footer}">Footer ở
+						đây</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+</body>
+</html>

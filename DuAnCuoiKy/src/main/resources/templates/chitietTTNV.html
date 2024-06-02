@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+<link rel="shortcut icon" type="images/png" href="images/logo.png">
+
+<title>Chi tiết nhân viên</title>
+
+<!-- CSS Bootstrap lõi -->
+<link th:href="@{/bootstrap-4.3.1-dist/css/bootstrap.min.css}"
+	rel="stylesheet">
+<!-- CSS tự tạo của mình-->
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+	<div id="menu">
+		<div th:replace="~{fragments/sidebar_nv :: aside}">Siderbar ở đây</div>
+	</div>
+	<div id="content">
+		<table width=100% height=100%>
+			<tr>
+				<td colspan=2>
+					<div th:replace="~{fragments/headerfile_nv :: header}">Header ở
+						đây</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<main>
+						<div class="container-fluid px-4">
+							<h2 class="text-center mb-4">Chi Tiết Thông Tin Nhân Viên</h2>
+							<div class="row">
+								<!-- Cột thứ nhất -->
+								<div class="col-md-6 product-details">
+									<p>
+										<strong>Mã nhân viên:</strong> <span
+											th:text="${nhanVien.maNV}"></span>
+									</p>
+									<p>
+										<strong>Tên nhân viên:</strong> <span
+											th:text="${nhanVien.tenNV}"></span>
+									</p>
+									<p>
+										<strong>CMND:</strong> <span th:text="${nhanVien.cmnd}"></span>
+									</p>
+									<p>
+										<strong>Giới tính:</strong> <span
+											th:text="${nhanVien.gioiTinh}"></span>
+									</p>
+									<p>
+										<strong>Ngày sinh:</strong> <span
+											th:text="${nhanVien.ngaySinh}"></span>
+									</p>
+									<p>
+										<strong>Chức vụ:</strong> <span th:text="${nhanVien.chucVu}"></span>
+									</p>
+									<p>
+										<strong>Phòng ban:</strong> <span
+											th:text="${phongBan != null ? phongBan.tenphong : 'N/A'}"></span>
+									</p>
+									<p>
+										<strong>Nơi sinh:</strong> <span
+											th:text="${ttNhanVien.noiSinh}"></span>
+									</p>
+								</div>
+
+								<!-- Cột thứ hai -->
+								<div class="col-md-6 product-details">
+									
+									<p>
+										<strong>Nguyên quán:</strong> <span
+											th:text="${ttNhanVien.nguyenQuan}"></span>
+									</p>
+									<p>
+										<strong>Hộ khẩu thường trú:</strong> <span
+											th:text="${ttNhanVien.hkThuong}"></span>
+									</p>
+									<p>
+										<strong>Hộ khẩu tạm trú:</strong> <span
+											th:text="${ttNhanVien.hkTam}"></span>
+									</p>
+									<p>
+										<strong>Số điện thoại:</strong> <span
+											th:text="${ttNhanVien.sdt}"></span>
+									</p>
+									<p>
+										<strong>Ngày vào công ty:</strong> <span
+											th:text="${ttNhanVien.ngayVao}"></span>
+									</p>
+									<p>
+										<strong>Tôn giáo:</strong> <span
+											th:text="${ttNhanVien.tonGiao}"></span>
+									</p>
+									<p>
+										<strong>Quốc tịch:</strong> <span
+											th:text="${ttNhanVien.quocTich}"></span>
+									</p>
+									<p>
+										<strong>Trình độ ngoại ngữ:</strong> <span
+											th:text="${ttNhanVien.ngoaiNgu}"></span>
+									</p>
+									<p>
+										<strong>Trình độ học vấn:</strong> <span
+											th:text="${ttNhanVien.hocVan}"></span>
+									</p>
+								</div>
+							</div>
+
+							<div class="action-buttons text-center">
+								<a class="btn btn-secondary" th:href="@{/TTNhanVien}">Quay lại</a>
+							</div>
+						</div>
+					</main>
+				</td>
+			</tr>
+			<tr>
+				<td colspan=2>
+					<div th:replace="~{fragments/footerfile :: footer}">Footer ở
+						đây</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>
