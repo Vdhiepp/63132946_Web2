@@ -7,7 +7,7 @@
 - Kết quả là một trang chủ đơn giản nhưng có giao diện hấp dẫn.
 </br>
 
-![Example Image](https://github.com/Vdhiepp/63132946_Web2/tree/main/gif/page1.png) 
+![Example Image](https://github.com/Vdhiepp/63132946_Web2/blob/main/gif/page1.png) 
 </br>
 
 ### Login:
